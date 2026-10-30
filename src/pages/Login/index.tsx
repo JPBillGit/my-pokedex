@@ -54,41 +54,49 @@ export default function LoginScreen() {
       <View style={styles.boxTop}>
         <Image source={Logo} style={styles.logo} />
         <Text style={styles.textTop}>Pokédex</Text>
+        <Text style={{ color: theme.colors.textSecondary }}>
+          Turma 34 DS – ETE · João Pedro
+        </Text>
       </View>
       
       <View style={styles.boxMid}>
-      <Text style={styles.titleInput}>E-mail</Text>
-      <View style={styles.boxInput}>
-      <TextInput
-          value={email}
-          onChangeText={setEmail}
-          placeholder="seuemail@exemplo.com"
-          keyboardType="email-address"
-          autoCapitalize="none"
-          style={styles.textInput}
-        />
+        <Text style={styles.titleInput}>E-mail</Text>
+        <View style={styles.boxInput}>
+          <TextInput
+            value={email}
+            onChangeText={setEmail}
+            placeholder="seuemail@exemplo.com"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            style={styles.textInput}
+          />
+        </View>
+        <Text>
+          Você digitou: {email} ({email.length} letras)
+        </Text>
+
+        <Text style={styles.titleInput}>Senha</Text>     
+        <View style={styles.boxInput}>
+          <TextInput
+            value={password}
+            onChangeText={setPassword}
+            placeholder="********"
+            secureTextEntry
+            style={styles.textInput}
+          />
+        </View>       
       </View>
-      <Text style={styles.titleInput}>Senha</Text>      
-      <View style={styles.boxInput}>
-      <TextInput
-          value={password}
-          onChangeText={setPassword}
-          placeholder="********"
-          secureTextEntry
-          style={styles.textInput}
-        />
-      </View>        
-      </View>
+
       <View style={styles.boxBottom}>
-      <TouchableOpacity 
-        style={[styles.buttonEntrar, isButtonDisabled && {opacity: 0.2}]} 
-        onPress={handleLogin}
-        disabled={isButtonDisabled}
+        <TouchableOpacity 
+          style={[styles.buttonEntrar, isButtonDisabled && {opacity: 0.2}]} 
+          onPress={handleLogin}
+          disabled={isButtonDisabled}
         >
           { isLoading ? 
-          <ActivityIndicator color={theme.colors.text}/> :
-          <Text style={styles.buttonEntrarText}>Entrar</Text>
-          }          
+            <ActivityIndicator color={theme.colors.text}/> :
+            <Text style={styles.buttonEntrarText}>Entrar</Text>
+          }         
         </TouchableOpacity>
         {errorMessage ? 
           <Text style={{color: 'red', marginTop: 8}}>{errorMessage}</Text> 
@@ -98,4 +106,3 @@ export default function LoginScreen() {
     </View>
   );
 };
-
