@@ -4,6 +4,7 @@ import LoginScreen from '../pages/Login';
 import PokemonListScreen from '../pages/PokemonList';
 import PokemonDetailScreen from '../pages/PokemonDetail';
 import PokemonCameraScreen from '../pages/PokemonCamera';
+import AboutScreen from '../pages/About'; // 1. Importe a tela Sobre aqui
 
 export type RootStackParamList = {
     Login: undefined;
@@ -24,6 +25,11 @@ export default function AppNavigator() {
             <Stack.Screen name="PokemonList" component={PokemonListScreen}/>
             <Stack.Screen name="PokemonDetail" component={PokemonDetailScreen}/>
             <Stack.Screen name="PokemonCamera" component={PokemonCameraScreen}/>
+            <Stack.Screen 
+                name="About" 
+                component={AboutScreen} 
+                options={{ headerShown: true, title: 'Sobre' }} 
+            />
         </Stack.Navigator>
     )
 }
