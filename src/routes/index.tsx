@@ -10,6 +10,7 @@ export type RootStackParamList = {
     PokemonList: undefined;
     PokemonDetail: {id: number};
     PokemonCamera: {id: number};
+    About: undefined;
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
